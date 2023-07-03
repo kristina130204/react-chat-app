@@ -2,15 +2,222 @@ body{
     margin: 0;
     padding: 0;
 }
+::-webkit-scrollbar{
+    display: none;
+}
 .button{
     border: none;
-    background: linear-gradient(90deg, rgb(250, 222, 181) 2%, #afdefa 100%);
-    border: 2px solid rgb(250, 222, 181);
-    transition: all 5s;
+    background: linear-gradient(90deg, rgb(240, 188, 129) 20%, #da856b 100%);
+    transition: all .5s ease-out;
     cursor: pointer;
     font-weight: bold;
     &:hover{
-        background: transparent;
+        background: #255672;
+        color: #ffffffe3;
+    }
+}        
+.blur{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-color: rgb(250, 222, 181);
+    filter: blur(50px);
+    &:nth-of-type(1){
+        top: -10px;
+        left: 7px;
+    }
+    &:nth-of-type(2){
+        bottom: -15px;
+        right: 20px;
+    }
+}
+.Home{
+    position: relative;
+    background: #afdefa;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .container{
+        border-radius: 20px;
+        width: 65%;
+        height: 90%;
+        display: flex;
+        overflow: hidden;
+        .Sidebar{
+            flex: 1;
+            background-color: #243749;
+            color: #ffffffcc;
+            .Navbar{
+                display: flex;
+                align-items: center;
+                background-color: #0000008f;
+                height: 50px;
+                padding: 10px;
+                justify-content: space-between;
+                .logo{
+                    font-weight: bold;
+                }
+                .user{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    img{
+                        background-color: #ffffff9c;
+                        height: 30px;
+                        width: 30px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+                    button{
+                        padding: 10px 20px;
+                        font-size: 12px;
+                        border-radius: 10px;
+                    }
+                }
+            }
+            .Search{
+                border-bottom: 1px solid #00000038;
+                .searchForm{
+                    padding: 10px;
+                    input{
+                        background-color: transparent;
+                        border: none;
+                        outline: none;
+                        color: #ffffffcc;
+                    }
+                }
+            }
+            .userChat{
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: #ffffffcc;
+                transition: all .5s ease-out;
+                cursor: pointer;
+                &:hover{
+                    background-color: #0000008f;
+                }
+                img{
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+                .userChatInfo{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    span{
+                        font-weight: bold;
+                        font-size: 18px;
+                    }
+                    p{
+                        margin: 0;
+                        padding: 0;
+                        font-weight: lighter;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+        .Chat{
+            flex: 2;
+            position: relative;
+            .chatInfo{
+                position: relative;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                background-color: #0014506c;
+                padding: 10px;
+                color: #fff;
+            }
+            .Messages{
+                position: relative;
+                overflow: auto;
+                background: linear-gradient(0deg, rgba(255,209,163,0.45702030812324934) 0%, rgba(255,218,249,0.3253676470588235) 100%);
+                padding: 10px;
+                height: calc(100% - 160px);
+                .Message{
+                &.owner{
+                    flex-direction: row-reverse;
+                    .messageContent{
+                        align-items: flex-end;
+                        p{
+                            max-width: max-content;
+                            background-color: #87abda;
+                            color: #fff;
+                            border-radius: 10px 0 10px 10px;
+                        }
+                    }
+                }
+                    position: relative;
+                    display: flex;
+                    gap: 20px;
+                    margin-bottom: 20px;
+                    .messageInfo{
+                        display: flex;
+                        flex-direction: column;
+                        color:#0000008f;
+                        font-weight: 300;
+                        img{
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            object-fit: cover;
+                        }
+                    }
+                    .messageContent{
+                        max-width: 80%;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                        align-items: flex-start;
+                        p{
+                            max-width: max-content;
+                            background-color: #ffffffe1;
+                            padding: 10px 20px;
+                            border-radius: 0px 10px 10px 10px;
+                        }
+                        img{
+                            width: 50%;
+                            
+                        }
+                    }
+                }
+            }
+            .Input{
+                height: 50px;
+                background-color: #fff;
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                input{
+                    outline: none;
+                    border: none;
+                    width: 100%;
+                    font-size: 18px;
+                    color: #000000bd;
+                }
+                .send{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    button{
+                        padding: 10px 20px;
+                        border-radius: 10px;
+                    }
+                    i{
+                        cursor: pointer;
+                        font-size: 24px;
+                        color: #00000062;
+                    }
+                }
+            }
+        }
     }
 }
 .Register{
@@ -44,21 +251,7 @@ body{
             position: relative;
             font-size: 12px;
         }
-        .blur{
-            position: absolute;
-            width: 150px;
-            height: 150px;
-            background-color: rgb(250, 222, 181);
-            filter: blur(50px);
-            &:nth-of-type(1){
-                top: -10px;
-                left: 7px;
-            }
-            &:nth-of-type(2){
-                bottom: -15px;
-                right: 20px;
-            }
-        }
+
         form{
             position: relative;
             display: flex;
@@ -73,6 +266,19 @@ body{
             button{
                 padding: 10px 20px;
                 border-radius: 10px;
+            }
+            label{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color:#2c698d;
+                cursor: pointer;
+                i{
+                    font-size: 24px;
+                }
+                span{
+                    font-size: 13px;
+                }
             }
         }
     }
